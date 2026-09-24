@@ -5,12 +5,89 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Myy ja Opi</title>
+  <link rel="stylesheet" href="style.css">
   <script src="main.js" defer></script>
 </head>
 
 <body>
-  <h1>Myy ja Opi</h1>
+
+  <header>
+
+    <div class="website-title" id="header-left">
+      Myy ja Opi
+    </div>
+
+    <div id="header-right">
+
+      <div class="button-row">
+
+        <button>Myy</button>
+        <button>Ilmoitukset</button>
+        <button>Viestit</button>
+
+      </div>
+
+      <button class="user-nav">
+        <img class="user-avatar" alt="User avatar" src="images/user-svgrepo-com.svg">
+        <span class="user-name">Anonyymi</span>
+      </button>
+
+    </div>
+
+  </header>
+
+  <main>
+
+    <form id="search-form">
+
+      <label for="item-search"><h2>Etsi</h2></label>
+
+      <div>
+        <input type="search" class="search-bar" id="item-search" name="item-search" placeholder="Etsi tuotteita...">
+        <input type="submit" class="search-button" value="Hae">
+      </div>
+
+      <label for="search-filters"><h3>Kategoriat</h3></label>
+
+      <div class="checkbox-group">
+
+        <input type="checkbox" id="books" name="search-filters" value="books" ><label for="books">Kirjat</label>
+        <input type="checkbox" id="clothes" name="search-filters" value="clothes" ><label for="clothes">Vaatteet</label>
+        <input type="checkbox" id="electronics" name="search-filters" value="electronics" ><label for="electronics">Elektroniikka</label>
+        <input type="checkbox" id="badges" name="search-filters" value="badges" ><label for="badges">Haalarimerkit</label>
+
+      </div>
+    </form>
+
+    <section>
+
+      <h2>Suosituimmat tuotteet</h2>
+
+      <div class="product-row">
+
+        <div class="product-card">
+          <img src="images/product.png" alt="" aria-hidden="true" class="product-img">
+          <span class="product-name">Tuote 1</span>
+        </div>
+
+        <div class="product-card">
+          <img src="images/product.png" alt="" aria-hidden="true" class="product-img">
+          <span class="product-name">Tuote 2</span>
+        </div>
+
+        <div class="product-card">
+          <img src="images/product.png" alt="" aria-hidden="true" class="product-img">
+          <span class="product-name">Tuote 3</span>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
 </body>
 
 </html>

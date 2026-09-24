@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+}
+
+:root {
+  --navbar-background-color: red; /* placeholder color */
+  --navbar-text-color: white;
+  --navbar-border: 1px solid white;
+}
+
+button:hover,
+input[type='submit']:hover {
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: salmon;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--navbar-background-color);
+  color: var(--navbar-text-color);
+}
+
+.website-title {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+}
+
+#header-right {
+  display: flex;
+}
+
+.button-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.button-row button {
+  border: var(--navbar-border);
+  border-radius: 5px;
+  background-color: var(--navbar-background-color);
+  color: var(--navbar-text-color);
+  padding: 5px;
+  font-size: 16px;
+}
+
+.user-nav {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 5px;
+  border: none;
+  border-left: var(--navbar-border);
+  background-color: var(--navbar-background-color);
+  color: var(--navbar-text-color);
+  font-size: 16px;
+}
+
+.user-avatar {
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px;
+}
+
+#search-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-row {
+  background-color: lightgray;
+  border-radius: 10px;
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.product-img {
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 1.25em;
+}
