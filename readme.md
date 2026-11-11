@@ -1,8 +1,10 @@
-# About
+# Myy ja Opi
+
+## About
 
 This project entails a marketplace application intended primarily for university students. Items that can be sold include work laptops, overalls badges or tickets to student events.
 
-# Git practices
+## Git practices
 
 Before pushing new commits, the developer should test that the code works first. A commit does not have to be fully finished or flawless to be applicable for submission, however in such cases the developer should push into a separate branch instead. Commits should be kept relatively small to ensure changes can be easily reverted.
 
