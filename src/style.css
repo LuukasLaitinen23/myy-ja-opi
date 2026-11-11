@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap');
+@import 'tailwindcss';
 
 * {
   margin: 0;
@@ -24,8 +25,10 @@
   --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --shadow-soft: 0 1px 2px rgba(58, 28, 77, 0.06), 0 8px 24px rgba(58, 28, 77, 0.08);
-  --shadow-lift: 0 2px 4px rgba(58, 28, 77, 0.08), 0 16px 36px rgba(58, 28, 77, 0.16);
+  --shadow-soft:
+    0 1px 2px rgba(58, 28, 77, 0.06), 0 8px 24px rgba(58, 28, 77, 0.08);
+  --shadow-lift:
+    0 2px 4px rgba(58, 28, 77, 0.08), 0 16px 36px rgba(58, 28, 77, 0.16);
 }
 
 body {
@@ -52,24 +55,24 @@ input[type='submit']:hover {
   outline-offset: 3px;
 }
 
-header {
+/*header {
   position: sticky;
   top: 0;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-items: center;
   gap: 8px;
-  padding: 10px 32px;
   background-color: var(--navbar-background-color);
   color: var(--navbar-text-color);
   box-shadow: 0 4px 20px rgba(58, 28, 77, 0.25);
-}
+  padding: 10px 32px;
 
-.website-title {
-  display: flex;
-  align-items: center;
+}*/
+
+#website-title {
+  /*display: flex;
+  align-items: center;*/
   font-family: var(--font-display);
   font-size: 1.7rem;
   font-weight: 700;
@@ -82,23 +85,19 @@ header {
   gap: 8px;
 }
 
-.button-row {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-
-.button-row button {
+header button {
   border: 1px solid transparent;
   border-radius: 999px;
   background-color: transparent;
   color: var(--navbar-text-color);
   padding: 8px 18px;
   font-weight: 500;
-  transition: background-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    color 0.2s;
 }
 
-.button-row button:first-child {
+header button:first-child {
   background-color: var(--accent);
   color: var(--primary-dark);
   font-weight: 600;
@@ -108,30 +107,21 @@ header button:hover {
   background-color: rgba(255, 255, 255, 0.14);
 }
 
-.button-row button:first-child:hover {
+header button:first-child:hover {
   background-color: #ffa986;
 }
 
 .user-nav {
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  gap: 10px;
-  margin-left: 10px;
-  padding: 3px 16px 3px 3px;
   border: var(--navbar-border);
-  border-radius: 999px;
   background-color: transparent;
-  color: var(--navbar-text-color);
   transition: background-color 0.2s;
 }
 
-.user-avatar {
+#user-avatar {
   height: 38px;
   width: 38px;
   padding: 7px;
   background-color: var(--primary-soft);
-  border-radius: 50%;
   object-fit: contain;
 }
 
@@ -175,7 +165,9 @@ h3 {
   background-color: var(--page-background);
   border: 1px solid var(--line);
   border-radius: 999px;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 #search-form > div:first-of-type:focus-within {
@@ -234,7 +226,10 @@ h3 {
   background-color: var(--surface);
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.2s, border-color 0.2s, color 0.2s;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
 }
 
 .checkbox-group label:hover {
@@ -270,7 +265,9 @@ section > h2 {
   background-color: var(--surface);
   border-radius: var(--radius);
   box-shadow: var(--shadow-soft);
-  transition: transform 0.25s, box-shadow 0.25s;
+  transition:
+    transform 0.25s,
+    box-shadow 0.25s;
 }
 
 .product-card:hover {
@@ -293,4 +290,10 @@ section > h2 {
   font-weight: 600;
   font-size: 1.2rem;
   letter-spacing: -0.01em;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+  }
 }
