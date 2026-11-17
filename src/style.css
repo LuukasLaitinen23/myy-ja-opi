@@ -43,11 +43,11 @@ button,
 input {
   font: inherit;
   color: inherit;
+  cursor: pointer;
 }
 
-button:hover,
-input[type='submit']:hover {
-  cursor: pointer;
+input[type='search'] {
+  cursor: text;
 }
 
 :focus-visible {
@@ -55,20 +55,19 @@ input[type='submit']:hover {
   outline-offset: 3px;
 }
 
-/*header {
-  position: sticky;
+header {
+  /*position: sticky;
   top: 0;
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  background-color: var(--navbar-background-color);
   color: var(--navbar-text-color);
-  box-shadow: 0 4px 20px rgba(58, 28, 77, 0.25);
   padding: 10px 32px;
-
-}*/
+  box-shadow: var(--shadow-soft);
+  background-color: var(--navbar-background-color);*/
+}
 
 #website-title {
   /*display: flex;
@@ -77,6 +76,7 @@ input[type='submit']:hover {
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: -0.01em;
+  cursor: default;
 }
 
 #header-right {
@@ -106,6 +106,9 @@ header button:first-child {
 header button:hover {
   background-color: rgba(255, 255, 255, 0.14);
 }
+header button:active {
+  background-color: var(--ink);
+}
 
 header button:first-child:hover {
   background-color: #ffa986;
@@ -126,12 +129,12 @@ header button:first-child:hover {
 }
 
 main {
-  display: flex;
+  /*display: flex;
   flex-direction: column;
   gap: 48px;
-  max-width: 1040px;
-  margin: 0 auto;
   padding: 40px 24px 80px;
+  max-width: 90vw;
+  */
 }
 
 h2 {
@@ -149,22 +152,24 @@ h3 {
 }
 
 #search-form {
+  /*
   display: flex;
   flex-direction: column;
   gap: 14px;
-  padding: 28px;
-  background-color: var(--surface);
   border-radius: 24px;
+  padding: 28px;
+  */
+  background-color: var(--surface);
   box-shadow: var(--shadow-soft);
 }
 
 #search-form > div:first-of-type {
-  display: flex;
+  /*display: flex;
   gap: 10px;
   padding: 6px;
+  border-radius: 999px;*/
   background-color: var(--page-background);
   border: 1px solid var(--line);
-  border-radius: 999px;
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
@@ -178,8 +183,10 @@ h3 {
 .search-bar {
   flex: 1;
   min-width: 0;
+  /*
   padding: 10px 18px;
   border: none;
+  */
   background: transparent;
 }
 
@@ -192,13 +199,13 @@ h3 {
 }
 
 .search-button {
-  padding: 10px 30px;
-  border: none;
+  /*padding: 10px 30px;
   border-radius: 999px;
+  border: none;*/
   background-color: var(--primary);
-  color: #fff;
   font-weight: 600;
   transition: background-color 0.2s;
+  color: #fff;
 }
 
 .search-button:hover {
