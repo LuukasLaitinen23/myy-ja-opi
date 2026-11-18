@@ -23,15 +23,18 @@
     text-white bg-blue-600 shadow-lg shadow-black-950/25
     ">
 
-    <div class="flex items-center" id="website-title">
+    <a class="flex items-center" id="website-title" href="index.html">
       Myy ja Opi
-    </div>
+    </a>
 
     <nav class="flex flex-wrap items-center gap-2">
 
-      <button>Myy</button>
-      <button>Ilmoitukset</button>
-      <button>Viestit</button>
+      <button class="flex flex-row items-center gap-2"><i class="fa-solid fa-sack-dollar"></i><span
+          class="nav-label">Myy</span></button>
+      <button class="flex flex-row items-center gap-2"><i class="fa-solid fa-cart-shopping"></i><span
+          class="nav-label">Ostoskori</span></button>
+      <button class="flex flex-row items-center gap-2"><i class="fa-solid fa-bell"></i><span
+          class="nav-label">Ilmoitukset</span></button>
 
       <button class="
       flex items-center gap-2
@@ -39,32 +42,52 @@
       rounded-full
       ">
         <img class="rounded-full" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
-        <span id="user-name">Anonyymi</span>
+        <span id="user-name" class="nav-label">Anonyymi</span>
       </button>
 
     </nav>
 
   </header>
 
-  <main class="grid gap-12">
+  <main class="grid gap-12 my-5">
 
-    <form id="search-form" class="flex flex-col gap-3 p-7 rounded-3xl">
+    <form id="search-form" class="
+    flex flex-col gap-3
+    p-7
+    rounded-3xl
+    shadow-black-950/25
+    ">
 
       <label for="item-search">
         <h2>Etsi</h2>
       </label>
 
-      <div class="flex gap-5 p-3 rounded-full">
-        <input type="search" class="search-bar p-3 border-none" id="item-search" name="item-search"
-          placeholder="Etsi tuotteita...">
-        <input type="submit" class="search-button px-6 py-3 text-white rounded-full border-none" value="Hae">
+      <div class="
+      flex gap-5
+      p-3
+      rounded-full
+      border border-solid border-grey-400
+      focus-within:border-blue-600
+      focus-within:shadow-xl/50">
+        <input type="search" class="
+        search-bar
+        p-3
+        border-none" id="item-search" name="item-search" placeholder="Etsi tuotteita...">
+        <input type="submit" class="
+        search-button
+        px-6 py-3
+        bg-blue-600 text-white
+        rounded-full border-none
+        hover:bg-blue-500
+        active:bg-blue-700
+        " value="Hae">
       </div>
 
       <label for="search-filters">
         <h3>Kategoriat</h3>
       </label>
 
-      <div class="checkbox-group">
+      <div class="checkbox-group relative flex flex-wrap gap-2">
 
         <input type="checkbox" id="books" name="search-filters" value="books"><label for="books">Kirjat</label>
         <input type="checkbox" id="clothes" name="search-filters" value="clothes"><label for="clothes">Vaatteet</label>
