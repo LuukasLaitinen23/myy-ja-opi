@@ -1,5 +1,8 @@
 import express from 'express';
-import {getProducts} from '../controllers/product-controller.js';
+import {
+  getProducts,
+  getProductById,
+} from '../controllers/product-controller.js';
 
 const productRouter = express.Router();
 
@@ -54,5 +57,29 @@ const productRouter = express.Router();
  */
 
 productRouter.route('/').get(getProducts);
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *   get:
+ *     summary: Hakee yksittäisen tuotteen ID:llä
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: Tuotteen ID
+ *     responses:
+ *       200:
+ *         description: Tuotteen tiedot
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/Product'
+ *       404:
+ *         description: Tuotetta ei löydy
+ */
+productRouter.route('/:id').get(getProductById);
 
 export default productRouter;

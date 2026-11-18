@@ -26,12 +26,16 @@ const listAllProducts = async (limit) => {
   }
 };
 
+// Hakee yksittäisen tuotteen ID:llä
 const findProductById = async (id) => {
   try {
-    const [rows] = await promisePool.execute(
-      'SELECT * FROM products WHERE product_id = ?',
-      [id]
-    );
+    let sqlQuery = `SELECT p.product_id, p.title, p.price, p.city, c.name AS category_name, u.username AS seller
+      FROM products p
+      JOIN categories c ON p.category_id = c.category_id
+      JOIN users u ON p.user_id = u.user_id
+      WHERE p.product_id = ?`;
+
+    const [rows] = await promisePool.execute(sqlQuery, [id]);
     console.log('rows', rows);
     return rows[0];
   } catch (e) {
@@ -40,4 +44,4 @@ const findProductById = async (id) => {
   }
 };
 
-export {listAllProducts};
+export {listAllProducts, findProductById};
