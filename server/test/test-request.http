@@ -3,16 +3,16 @@
 ### Product ENDPOINTS (/api/product)
 
 ### Hae kaikki tuotteet
-GET {{baseUrl}}/
+GET {{baseUrl}}/products
 
 ### Hae rajoitettu määrä tuotteita (limit)
-GET {{baseUrl}}/product?limit=2
+GET {{baseUrl}}/products?limit=2
 
 ### Hae yksittäinen tuote ID:llä
-GET {{baseUrl}}/product/1
+GET {{baseUrl}}/products/1
 
 ### Lataa uusi kuva palvelimelle (Multer)
-POST {{baseUrl}}/media
+POST {{baseUrl}}/product
 Content-Type: multipart/form-data; boundary=----Boundary
 
 ------Boundary
