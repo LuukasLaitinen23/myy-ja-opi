@@ -1,9 +1,5 @@
 import express from 'express';
-import path from 'path';
-import mediaRouter from './routes/media-routes.js';
-import userRouter from './routes/user-routes.js';
-import likeRouter from './routes/like-routes.js';
-import authRouter from './routes/auth.router.js';
+import cors from 'cors';
 
 const hostname = '127.0.0.1';
 const app = express();
@@ -13,6 +9,7 @@ app.set('view engine', 'pug');
 app.set('views', 'src/views');
 
 app.use(express.json());
+app.use(cors());
 
 // public-kansion kaikki sisältö tarjoillaan palvelimen juuri-urlissa
 app.use('/', express.static('public'));
@@ -27,19 +24,6 @@ app.get('/api', (req, res) => {
     message: 'Dummy /items endpoint API for now.',
   });
 });
-
-// Media resource routes (/api/media endpoints)
-
-app.use('/api/media', mediaRouter);
-
-// User resource routes (/api/users endpoints)
-app.use('/api/users', userRouter);
-
-// Like resource routes (/api/likes endpoints)
-app.use('/api/likes', likeRouter);
-
-// user authentication
-app.use('/api/auth', authRouter);
 
 // Start the server
 app.listen(port, hostname, () => {
