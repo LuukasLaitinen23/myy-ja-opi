@@ -1,5 +1,20 @@
 .vscode
 .idea
 node_modules
-.DS_Store
 package-lock.json
+
+# Ympäristömuuttujat ja salasanat
+.env
+.env.local
+.env.*.local
+
+# Käyttäjien lataamat kuvat
+uploads/*
+!uploads/.gitkeep
+
+# Lokit ja väliaikaistiedostot
+npm-debug.log*
+*.log
+
+# macOS
+.DS_Store

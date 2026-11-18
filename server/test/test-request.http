@@ -1,0 +1,111 @@
+@baseUrl = http://127.0.0.1:3000/api
+
+### Product ENDPOINTS (/api/product)
+
+### Hae kaikki tuotteet
+GET {{baseUrl}}/products
+
+### Hae rajoitettu määrä tuotteita (limit)
+GET {{baseUrl}}/products?limit=2
+
+### Hae yksittäinen tuote ID:llä
+GET {{baseUrl}}/products/1
+
+### Lataa uusi kuva palvelimelle (Multer)
+POST {{baseUrl}}/product
+Content-Type: multipart/form-data; boundary=----Boundary
+
+------Boundary
+Content-Disposition: form-data; name="title"
+
+REST Client Testikuva
+------Boundary
+Content-Disposition: form-data; name="description"
+
+Ladattu test-request.http-tiedostosta
+------Boundary
+Content-Disposition: form-data; name="user_id"
+
+1
+------Boundary
+Content-Disposition: form-data; name="file"; filename="ffd8.png"
+Content-Type: image/png
+
+< ../media/ffd8.png
+------Boundary--
+
+### Muokkaa olemassa olevaa tuotetta ID:llä
+PUT {{baseUrl}}/product/1
+Content-Type: application/json
+
+{
+  "title": "Päivitetty otsikko",
+  "description": "Päivitetty kuvaus tietokantaan"
+}
+
+### Poista tuote ID:llä
+DELETE {{baseUrl}}/media/6
+
+
+### USER ENDPOINTS (/api/users)
+
+### Hae kaikki käyttäjät
+GET {{baseUrl}}/users
+
+### Hae yksittäinen käyttäjä ID:llä
+GET {{baseUrl}}/users/1
+
+### Luo uusi käyttäjä
+POST {{baseUrl}}/users
+Content-Type: application/json
+
+{
+  "username": "testikayttaja",
+  "password": "salasana123",
+  "email": "testi@example.com",
+  "user_level_id": 2
+}
+
+### Muokkaa käyttäjän tietoja
+PUT {{baseUrl}}/users/4
+Content-Type: application/json
+
+{
+  "username": "paivitetty_kayttaja",
+  "password": "uusisalasana456",
+  "email": "paivitetty@example.com"
+}
+
+### Poista käyttäjä ID:llä
+DELETE {{baseUrl}}/users/4
+
+
+### LIKES ENDPOINTS (/api/likes)
+
+
+### Hae tietyn median tykkäykset (media_id = 1)
+GET {{baseUrl}}/likes/media/1
+
+### Hae tietyn käyttäjän tykkäykset (user_id = 1)
+GET {{baseUrl}}/likes/user/1
+
+### Lisää uusi tykkäys
+POST {{baseUrl}}/likes
+Content-Type: application/json
+
+{
+  "media_id": 4,
+  "user_id": 2
+}
+
+### Kokeile lisätä sama tykkäys uudestaan (palauttaa 409 Conflict)
+POST {{baseUrl}}/likes
+Content-Type: application/json
+
+{
+  "media_id": 7,
+  "user_id": 2
+}
+
+### Poista tykkäys ID:llä
+DELETE {{baseUrl}}/likes/4

@@ -2,11 +2,11 @@
 
 -- Poistetaan vanha kanta ja luodaan uusi tyhjä
 
-DROP DATABASE IF EXISTS opijamyy;
+DROP DATABASE IF EXISTS myyjaopi;
 
-CREATE DATABASE opijamyy;
+CREATE DATABASE myyjaopi;
 
-USE opijamyy;
+USE myyjaopi;
 
 
 
