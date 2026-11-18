@@ -317,21 +317,30 @@ section > h2 {
   }
 }
 
+/* Bottom navi: never shown on desktop */
 .mobile-only {
   display: none;
+}
+
+header {
+  transition: transform 0.3s ease;
 }
 
 @media (hover: none) and (pointer: coarse) {
   .mobile-only {
     display: block;
+    bottom: calc(16px + env(safe-area-inset-bottom));
   }
 
-  #header-right {
+  #top-navi {
     display: none;
+  }
+
+  header.header-hidden {
+    transform: translateY(-120%);
   }
 
   main {
     padding-bottom: calc(112px + env(safe-area-inset-bottom));
   }
 }
-
