@@ -1,15 +1,15 @@
 @baseUrl = http://127.0.0.1:3000/api
 
-### MEDIA ENDPOINTS (/api/media)
+### Product ENDPOINTS (/api/product)
 
-### Hae kaikki mediat
-GET {{baseUrl}}/media
+### Hae kaikki tuotteet
+GET {{baseUrl}}/
 
-### Hae rajoitettu määrä medioita (limit)
-GET {{baseUrl}}/media?limit=2
+### Hae rajoitettu määrä tuotteita (limit)
+GET {{baseUrl}}/product?limit=2
 
-### Hae yksittäinen media ID:llä
-GET {{baseUrl}}/media/1
+### Hae yksittäinen tuote ID:llä
+GET {{baseUrl}}/product/1
 
 ### Lataa uusi kuva palvelimelle (Multer)
 POST {{baseUrl}}/media
@@ -34,8 +34,8 @@ Content-Type: image/png
 < ../media/ffd8.png
 ------Boundary--
 
-### Muokkaa olemassa olevaa mediaa
-PUT {{baseUrl}}/media/1
+### Muokkaa olemassa olevaa tuotetta ID:llä
+PUT {{baseUrl}}/product/1
 Content-Type: application/json
 
 {
@@ -43,7 +43,7 @@ Content-Type: application/json
   "description": "Päivitetty kuvaus tietokantaan"
 }
 
-### Poista media ID:llä
+### Poista tuote ID:llä
 DELETE {{baseUrl}}/media/6
 
 
@@ -76,7 +76,7 @@ Content-Type: application/json
   "email": "paivitetty@example.com"
 }
 
-### Poista käyttäjä ID:llä 
+### Poista käyttäjä ID:llä
 DELETE {{baseUrl}}/users/4
 
 
