@@ -260,10 +260,16 @@ section > h2 {
 
 .product-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-  gap: 28px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
+@media (min-width: 768px) {
+  .product-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+}
 .product-card {
   display: flex;
   flex-direction: column;
@@ -304,3 +310,22 @@ section > h2 {
     flex-direction: column;
   }
 }
+
+.mobile-only {
+  display: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .mobile-only {
+    display: block;
+  }
+
+  #header-right {
+    display: none;
+  }
+
+  main {
+    padding-bottom: calc(112px + env(safe-area-inset-bottom));
+  }
+}
+
