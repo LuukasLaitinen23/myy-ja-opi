@@ -85,11 +85,11 @@ header {
 }
 
 header button {
-  border: 1px solid transparent;
+  /*border: 1px solid transparent;
   border-radius: 999px;
   background-color: transparent;
   color: var(--navbar-text-color);
-  padding: 8px 18px;
+  padding: 8px 18px;*/
   font-weight: 500;
   transition:
     background-color 0.2s,
@@ -97,12 +97,13 @@ header button {
 }
 
 header button:first-child {
+  /*
   background-color: var(--accent);
-  color: var(--primary-dark);
+  color: var(--primary-dark);*/
   font-weight: 600;
 }
 
-header button:hover {
+/*header button:hover {
   background-color: rgba(255, 255, 255, 0.14);
 }
 header button:active {
@@ -112,12 +113,12 @@ header button:active {
 header button:first-child:hover {
   background-color: #ffa986;
 }
-
 .user-nav {
   border: var(--navbar-border);
   background-color: transparent;
   transition: background-color 0.2s;
 }
+*/
 
 #user-avatar {
   height: 38px;
@@ -334,4 +335,3 @@ section > h2 {
     padding-bottom: calc(112px + env(safe-area-inset-bottom));
   }
 }
-

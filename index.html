@@ -29,17 +29,25 @@
 
     <nav class="flex flex-wrap items-center gap-2">
 
-      <button class="flex flex-row items-center gap-2"><i class="fa-solid fa-sack-dollar"></i><span
-          class="nav-label">Myy</span></button>
-      <button class="flex flex-row items-center gap-2"><i class="fa-solid fa-cart-shopping"></i><span
-          class="nav-label">Ostoskori</span></button>
-      <button class="flex flex-row items-center gap-2"><i class="fa-solid fa-bell"></i><span
-          class="nav-label">Ilmoitukset</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-orange-400 text-purple-950 p-3
+      hover:bg-orange-300
+      active:bg-orange-500"><i class="fa-solid fa-sack-dollar"></i><span class="nav-label">Myy</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-transparent text-white p-3
+      hover:bg-blue-500
+      active:bg-blue-700"><i class="fa-solid fa-cart-shopping"></i><span class="nav-label">Ostoskori</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-transparent text-white p-3
+      hover:bg-blue-500
+      active:bg-blue-700"><i class="fa-solid fa-bell"></i><span class="nav-label">Ilmoitukset</span></button>
 
       <button class="
       flex items-center gap-2
-      user-nav
-      rounded-full
+      rounded-full bg-transparent text-white p-2
+      border border-white/20
+      hover:bg-blue-500
+      active:bg-blue-700
       ">
         <img class="rounded-full" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
         <span id="user-name" class="nav-label">Anonyymi</span>
@@ -107,7 +115,7 @@
       <div class="product-row">
 
         <div class="product-card group">
-          <button class="absolute hidden
+          <button id="product-1-heart" class="absolute hidden
           rounded-full
           bg-white
           text-stone-400
