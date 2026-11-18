@@ -76,7 +76,6 @@ header {
   font-size: 1.7rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  cursor: default;
 }
 
 #header-right {
@@ -128,6 +127,10 @@ header button:first-child:hover {
   object-fit: contain;
 }
 
+.nav-label {
+  display: block;
+}
+
 main {
   /*display: flex;
   flex-direction: column;
@@ -158,26 +161,26 @@ h3 {
   gap: 14px;
   border-radius: 24px;
   padding: 28px;
+  box-shadow: var(--shadow-soft);
   */
   background-color: var(--surface);
-  box-shadow: var(--shadow-soft);
 }
 
 #search-form > div:first-of-type {
   /*display: flex;
   gap: 10px;
   padding: 6px;
-  border-radius: 999px;*/
+  border-radius: 999px;
+  border: 1px solid var(--line);*/
   background-color: var(--page-background);
-  border: 1px solid var(--line);
   transition:
     border-color 0.2s,
     box-shadow 0.2s;
 }
 
 #search-form > div:first-of-type:focus-within {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 4px var(--primary-soft);
+  /*border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-soft);*/
 }
 
 .search-bar {
@@ -201,8 +204,8 @@ h3 {
 .search-button {
   /*padding: 10px 30px;
   border-radius: 999px;
-  border: none;*/
-  background-color: var(--primary);
+  border: none;
+  background-color: var(--primary);*/
   font-weight: 600;
   transition: background-color 0.2s;
   color: #fff;
@@ -211,13 +214,13 @@ h3 {
 .search-button:hover {
   background-color: var(--primary-dark);
 }
-
+/*
 .checkbox-group {
   position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-}
+}*/
 
 .checkbox-group input[type='checkbox'] {
   position: absolute;
@@ -308,6 +311,9 @@ section > h2 {
 @media only screen and (max-width: 600px) {
   header {
     flex-direction: column;
+  }
+  .nav-label {
+    display: none;
   }
 }
 
