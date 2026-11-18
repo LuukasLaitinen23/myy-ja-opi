@@ -3,11 +3,15 @@ import promisePool from '../utils/database.js';
 // Get All products
 const listAllProducts = async (limit) => {
   try {
+    let sqlQuery = `SELECT p.product_id, p.title, p.price, p.city, c.name AS category_name, u.username AS seller
+      FROM products p
+      JOIN categories c ON p.category_id = c.category_id
+      JOIN users u ON p.user_id = u.user_id
+      WHERE p.is_sold = FALSE
+      ORDER BY p.created_at DESC`;
     let result;
     if (limit) {
-      result = await promisePool.execute('SELECT * FROM products LIMIT ?', [
-        parseInt(limit, 10),
-      ]);
+      result = await promisePool.execute(sqlQuery, [parseInt(limit, 10)]);
     } else {
       result = await promisePool.execute('SELECT * FROM products');
     }
