@@ -16,6 +16,7 @@ const findCommentsByProductId = async (productId) => {
       WHERE c.product_id = ?
       ORDER BY c.created_at ASC
     `;
+    // array destructuring to get the 1st element of the array returned by promisePool.execute
     const [rows] = await promisePool.execute(sqlQuery, [productId]);
     return rows;
   } catch (e) {

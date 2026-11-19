@@ -45,7 +45,7 @@ app.get('/', (req, res) => {
 // Swagger UI setup
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Api routes
+// API endpoints
 app.use('/api/products', productRouter);
 app.use('/api/categories', categoryRouter);
 app.use('/api/comments', commentRouter);
