@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import productRouter from './routes/product-routes.js';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import productRouter from './routes/product-routes.js';
+import categoryRouter from './routes/category-routes.js';
+import commentRouter from './routes/comment-routes.js';
 
 const hostname = '127.0.0.1';
 const app = express();
@@ -20,6 +22,7 @@ const swaggerOptions = {
   },
   apis: ['./src/routes/*.js'], // Lukee kommentit kaikista route-tiedostoista
 };
+
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
 app.set('view engine', 'pug');
@@ -39,10 +42,13 @@ app.get('/', (req, res) => {
   });
 });
 
+// Swagger UI setup
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Api routes
 app.use('/api/products', productRouter);
+app.use('/api/categories', categoryRouter);
+app.use('/api/comments', commentRouter);
 
 // Start the server
 app.listen(port, hostname, () => {

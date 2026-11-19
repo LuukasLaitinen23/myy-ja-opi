@@ -47,6 +47,12 @@ Content-Type: application/json
 DELETE {{baseUrl}}/media/6
 
 
+### Comments ENDPOINTS (/api/comments)
+
+### Hae kommentit tietylle tuotteelle (product_id = 1)
+GET {{baseUrl}}/comments/product/1
+
+
 ### USER ENDPOINTS (/api/users)
 
 ### Hae kaikki käyttäjät
