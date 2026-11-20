@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Myy ja Opi</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/src/style.css">
+  <script type="module" src="/src/index.js"></script>
+</head>
+
+<body class="w-full flex flex-col items-center">
+
+  <header class="
+    flex flex-wrap justify-between items-center gap-8
+    sticky top-0 z-10
+    w-full
+    p-3
+    text-white bg-blue-600 shadow-lg shadow-black-950/25
+    ">
+
+    <a class="flex items-center" id="website-title" href="index.html">
+      <img src="images/myy-ja-opi-logo.png" alt="Myy ja Opi" class="h-10 w-auto md:h-12">
+    </a>
+
+    <nav id="top-navi" class="flex flex-wrap items-center gap-2">
+
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-orange-400 text-purple-950 p-3
+      hover:bg-orange-300
+      active:bg-orange-500"><i class="fa-solid fa-sack-dollar"></i><span class="nav-label">Myy</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-transparent text-white p-3
+      hover:bg-blue-500
+      active:bg-blue-700"><i class="fa-solid fa-cart-shopping"></i><span class="nav-label">Ostoskori</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-transparent text-white p-3
+      hover:bg-blue-500
+      active:bg-blue-700"><i class="fa-solid fa-bell"></i><span class="nav-label">Ilmoitukset</span></button>
+
+      <button class="
+      flex items-center gap-2
+      rounded-full bg-transparent text-white p-2
+      border border-white/20
+      hover:bg-blue-500
+      active:bg-blue-700
+      ">
+        <img class="rounded-full" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
+        <span id="user-name" class="nav-label">Anonyymi</span>
+      </button>
+
+    </nav>
+
+  </header>
+
+  <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col gap-8">
+
+    <!-- content here -->
+    <section>
+      <!-- TODO: tyylittely -->
+      <h1 id="product-title">Tavara 1</h1>
+      <img src="images/placeholder.jpg" id="product-big-img">
+      <div>
+        <p id="product-is-sold">Myydään</p> <!-- teksti muutetaan "myyty" jos on saatu myydyksi -->
+        <p><span id="product-price">0</span>€</p>
+
+        <div>
+          <button>Tykkää</button>
+          <button>Arvostele</button>
+        </div>
+
+        <h2>Kuvaus</h2>
+        <p id="product-description">Tähän lyhyt kuvaus tuotteesta.</p>
+
+        <h2>Lisätietoa</h2>
+        <div>
+          <p><b>Kunto: </b><span id="product-condition">Kunto</span></p>
+          <p><b>Kategoria: </b><a id="product-category" href="#">Kategoria</a></p>
+          <p><b>Sijainti: </b><span id="product-street-address">Osoite</span> <span
+              id="product-postal-code">00000</span> <span id="product-city">Espoo</span></p>
+          <p><b>Lisätty: </b><span id="product-creation-date">1.1.2026</span></p>
+        </div>
+
+        <h2>Tietoa myyjästä</h2>
+        <div id="product-seller-info">
+          <img src="images/user-svgrepo-com.svg" id="product-seller-avatar">
+          <p id="product-seller-name">Myyjän nimi</p>
+          <p><span id="product-seller-rating">0</span> tähteä</p>
+        </div>
+
+        <h2>Kommentit</h2>
+        <section id="product-comment-section">
+
+        </section>
+      </div>
+    </section>
+    <!-- content above -->
+  </main>
+
+  <nav
+    class="mobile-only fixed inset-x-4 bottom-4 z-20 rounded-full border border-white/50 bg-white/40 px-3 shadow-lg shadow-black/10 backdrop-blur-xl backdrop-saturate-150">
+    <ul class="flex h-16 items-center justify-around">
+
+      <li>
+        <a href="index.html" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-house text-xl"></i>
+          Etusivu
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-plus text-xl"></i>
+          Lisää oma
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-bell text-xl"></i>
+          Ilmoitukset
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-user text-xl"></i>
+          Oma käyttäjä
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+
+
+</body>
+
+</html>
