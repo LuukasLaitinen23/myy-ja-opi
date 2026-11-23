@@ -121,9 +121,10 @@ header button:first-child:hover {
 */
 
 #user-avatar {
+  /*
   height: 38px;
   width: 38px;
-  padding: 7px;
+  padding: 7px;*/
   background-color: var(--primary-soft);
   object-fit: contain;
 }
@@ -140,7 +141,7 @@ main {
   max-width: 90vw;
   */
 }
-
+/*
 h2 {
   font-family: var(--font-display);
   font-size: 1.9rem;
@@ -154,7 +155,7 @@ h3 {
   font-weight: 600;
   color: var(--muted);
 }
-
+*/
 #search-form {
   /*
   display: flex;

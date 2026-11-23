@@ -9,8 +9,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/src/style.css">
-  <script type="module" src="/src/index.js"></script>
+  <link rel="stylesheet" type="text/css" href="src/style.css">
 </head>
 
 <body class="w-full flex flex-col items-center">
@@ -49,7 +48,7 @@
       hover:bg-blue-500
       active:bg-blue-700
       ">
-        <img class="rounded-full" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
+        <img class="rounded-full size-10 p-2" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
         <span id="user-name" class="nav-label">Anonyymi</span>
       </button>
 
@@ -57,48 +56,69 @@
 
   </header>
 
-  <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col gap-8">
+  <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col items-center gap-8">
 
     <!-- content here -->
-    <section>
-      <!-- TODO: tyylittely -->
-      <h1 id="product-title">Tavara 1</h1>
-      <img src="images/placeholder.jpg" id="product-big-img">
-      <div>
-        <p id="product-is-sold">Myydään</p> <!-- teksti muutetaan "myyty" jos on saatu myydyksi -->
-        <p><span id="product-price">0</span>€</p>
-
+    <h1 id="product-title" class="text-2xl font-bold">Tavara 1</h1>
+    <img src="images/placeholder.jpg" id="product-big-img" class="w-[75%]">
+    <section class="gap-4">
+      <section class="flex flex-row justify-between">
         <div>
-          <button>Tykkää</button>
-          <button>Arvostele</button>
+          <p id="product-sold-status" class="text-sm">Myydään</p>
+          <!-- teksti muutetaan "myyty" jos on saatu myydyksi -->
+          <p class="text-lg"><span id="product-price">0</span>€</p>
         </div>
 
-        <h2>Kuvaus</h2>
-        <p id="product-description">Tähän lyhyt kuvaus tuotteesta.</p>
+        <div>
+          <button class="bg-blue-600 text-white rounded-full p-3
+          hover:bg-blue-500
+          active:bg-blue-700">Tykkää</button>
+          <button class="bg-gray-200 rounded-full p-3
+          hover:bg-gray-100
+          active:bg-gray-300">Arvostele</button>
+        </div>
+      </section>
 
-        <h2>Lisätietoa</h2>
+      <section>
+        <h2 class="text-xl font-bold my-2">Kuvaus</h2>
+        <p id="product-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi facilis recusandae
+          reprehenderit. Aspernatur, libero. Consequatur repellat, delectus accusantium rerum, expedita facilis est
+          molestiae nisi quas aperiam, aliquid libero et odit!</p>
+      </section>
+
+      <section>
+        <h2 class="text-xl font-bold my-2">Lisätietoa</h2>
         <div>
           <p><b>Kunto: </b><span id="product-condition">Kunto</span></p>
           <p><b>Kategoria: </b><a id="product-category" href="#">Kategoria</a></p>
           <p><b>Sijainti: </b><span id="product-street-address">Osoite</span> <span
-              id="product-postal-code">00000</span> <span id="product-city">Espoo</span></p>
+              id="product-postal-code">00000</span>
+            <span id="product-city">Espoo</span>
+          </p>
           <p><b>Lisätty: </b><span id="product-creation-date">1.1.2026</span></p>
         </div>
+      </section>
 
-        <h2>Tietoa myyjästä</h2>
-        <div id="product-seller-info">
-          <img src="images/user-svgrepo-com.svg" id="product-seller-avatar">
-          <p id="product-seller-name">Myyjän nimi</p>
-          <p><span id="product-seller-rating">0</span> tähteä</p>
+      <section>
+        <h2 class="text-xl font-bold my-2">Tietoa myyjästä</h2>
+        <div id="product-seller-info" class="flex flex-row gap-2 bg-gray-200 p-3 rounded-full w-fit">
+          <img src="images/user-svgrepo-com.svg" id="product-seller-avatar" class="bg-white size-12 rounded-full">
+          <div>
+            <a id="product-seller-name" href="#">Myyjän nimi</a>
+            <p><span id="product-seller-rating">0</span> tähteä</p>
+          </div>
         </div>
 
-        <h2>Kommentit</h2>
-        <section id="product-comment-section">
+      </section>
 
-        </section>
+      <section class="mb-20">
+        <h2 class="text-xl font-bold my-2">Kommentit</h2>
+        <div id="product-comment-section">
+
+        </div>
+      </section>
       </div>
-    </section>
-    <!-- content above -->
+      <!-- content above -->
   </main>
 
   <nav

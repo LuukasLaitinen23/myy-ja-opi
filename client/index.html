@@ -9,8 +9,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="/src/style.css">
-  <script type="module" src=""></script>
+  <link rel="stylesheet" type="text/css" href="src/style.css">
 </head>
 
 <body class="w-full flex flex-col items-center">
@@ -49,7 +48,7 @@
       hover:bg-blue-500
       active:bg-blue-700
       ">
-        <img class="rounded-full" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
+        <img class="rounded-full size-10 p-2" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
         <span id="user-name" class="nav-label">Anonyymi</span>
       </button>
 
@@ -81,7 +80,8 @@
         <input type="search" class="
         search-bar
         p-3
-        border-none" id="item-search" name="item-search" placeholder="Etsi tuotteita...">
+        border-none
+        active:border-none" id="item-search" name="item-search" placeholder="Etsi tuotteita...">
         <input type="submit" class="
         search-button
         px-6 py-3
