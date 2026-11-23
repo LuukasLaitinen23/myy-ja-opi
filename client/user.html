@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Myy ja Opi</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" type="text/css" href="src/style.css">
+</head>
+
+<body class="w-full flex flex-col items-center">
+
+  <header class="
+    flex flex-wrap justify-between items-center gap-8
+    sticky top-0 z-10
+    w-full
+    p-3
+    text-white bg-blue-600 shadow-lg shadow-black-950/25
+    ">
+
+    <a class="flex items-center" id="website-title" href="index.html">
+      <img src="images/myy-ja-opi-logo.png" alt="Myy ja Opi" class="h-10 w-auto md:h-12">
+    </a>
+
+    <nav id="top-navi" class="flex flex-wrap items-center gap-2">
+
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-orange-400 text-purple-950 p-3
+      hover:bg-orange-300
+      active:bg-orange-500"><i class="fa-solid fa-sack-dollar"></i><span class="nav-label">Myy</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-transparent text-white p-3
+      hover:bg-blue-500
+      active:bg-blue-700"><i class="fa-solid fa-cart-shopping"></i><span class="nav-label">Ostoskori</span></button>
+      <button class="flex flex-row items-center gap-2
+      rounded-full bg-transparent text-white p-3
+      hover:bg-blue-500
+      active:bg-blue-700"><i class="fa-solid fa-bell"></i><span class="nav-label">Ilmoitukset</span></button>
+
+      <button class="
+      flex items-center gap-2
+      rounded-full bg-transparent text-white p-2
+      border border-white/20
+      hover:bg-blue-500
+      active:bg-blue-700
+      ">
+        <img class="rounded-full size-10 p-2" id="user-avatar" alt="User avatar" src="../images/user-svgrepo-com.svg">
+        <span id="user-name" class="nav-label">Anonyymi</span>
+      </button>
+
+    </nav>
+
+  </header>
+
+  <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col items-center gap-8">
+
+    <!-- content here -->
+    <section>
+      <div id="user-info" class="flex flex-row gap-3 bg-gray-200 p-3 rounded-full w-fit">
+        <img src="images/user-svgrepo-com.svg" id="user-avatar" class="bg-white size-20 rounded-full">
+        <div>
+          <p>@<span id="user-name">Käyttäjänimi</span></p>
+          <p><span id="user-f-name">Matti</span> <span id="user-l-name">Meikäläinen</span></p>
+          <p><span id="user-rating">0</span> tähteä</p>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="w-full">
+      <h2 id="user-selling" class="text-xl font-bold my-2">Myynnissä nyt</h2>
+
+      <div class="overflow-x-scroll flex flex-row flex-nowrap gap-2 w-full p-3">
+
+        <div id="card-1" class="flex flex-col bg-white shadow-md shadow-black-950 rounded-3xl p-3 gap-3 min-w-[200px]">
+          <img id="card-1-img" src="images/placeholder.png" class="w-full">
+          <a id="card-1-title" class="font-bold text-lg" href="#">Tuotteen nimi</a>
+          <p class="text-lg"><span id="card-1-price">0</span>€</p>
+        </div>
+        <div id="card-2" class="flex flex-col bg-white shadow-md shadow-black-950 rounded-3xl p-3 gap-3 min-w-[200px]">
+          <img id="card-2-img" src="images/placeholder.png" class="w-full">
+          <a id="card-2-title" class="font-bold text-lg" href="#">Tuotteen nimi</a>
+          <p class="text-lg"><span id="card-2-price">0</span>€</p>
+        </div>
+        <div id="card-3" class="flex flex-col bg-white shadow-md shadow-black-950 rounded-3xl p-3 gap-3 min-w-[200px]">
+          <img id="card-3-img" src="images/placeholder.png" class="w-full">
+          <a id="card-3-title" class="font-bold text-lg" href="#">Tuotteen nimi</a>
+          <p class="text-lg"><span id="card-3-price">0</span>€</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="w-full">
+      <h2 id="user-reviews" class="text-xl font-bold my-2">Arvostelut</h2>
+      <div class="overflow-x-scroll flex flex-row flex-nowrap gap-2 w-full p-3">
+
+        <div id="review-1"
+          class="flex flex-row gap-3 bg-white p-3 shadow-md shadow-black-950 rounded-3xl min-w-[200px]">
+          <img src="images/user-svgrepo-com.svg" id="user-avatar" class="bg-white size-12 rounded-full">
+          <div>
+            <p>@<span id="review-1-user">Käyttäjänimi</span></p>
+            <p><span id="review-1-stars">0</span>/5 tähteä</p>
+          </div>
+        </div>
+
+        <div id="review-1"
+          class="flex flex-row gap-3 bg-white p-3 shadow-md shadow-black-950 rounded-3xl min-w-[200px]">
+          <img src="images/user-svgrepo-com.svg" id="user-avatar" class="bg-white size-12 rounded-full">
+          <div>
+            <p>@<span id="review-1-user">Käyttäjänimi</span></p>
+            <p><span id="review-1-stars">0</span>/5 tähteä</p>
+          </div>
+        </div>
+        <div id="review-1"
+          class="flex flex-row gap-3 bg-white p-3 shadow-md shadow-black-950 rounded-3xl min-w-[200px]">
+          <img src="images/user-svgrepo-com.svg" id="user-avatar" class="bg-white size-12 rounded-full">
+          <div>
+            <p>@<span id="review-1-user">Käyttäjänimi</span></p>
+            <p><span id="review-1-stars">0</span>/5 tähteä</p>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- content above -->
+  </main>
+
+  <nav
+    class="mobile-only fixed inset-x-4 bottom-4 z-20 rounded-full border border-white/50 bg-white/40 px-3 shadow-lg shadow-black/10 backdrop-blur-xl backdrop-saturate-150">
+    <ul class="flex h-16 items-center justify-around">
+
+      <li>
+        <a href="index.html" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-house text-xl"></i>
+          Etusivu
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-plus text-xl"></i>
+          Lisää oma
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-bell text-xl"></i>
+          Ilmoitukset
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="flex flex-col items-center gap-1 text-[11px] font-medium text-blue-600">
+          <i class="fa-solid fa-user text-xl"></i>
+          Oma käyttäjä
+        </a>
+      </li>
+
+    </ul>
+  </nav>
+
+
+
+</body>
+
+</html>
