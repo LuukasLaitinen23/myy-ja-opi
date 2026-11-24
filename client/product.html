@@ -56,12 +56,14 @@
 
   </header>
 
-  <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col items-center gap-8">
+  <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col items-center gap-8 lg:flex-row lg:items-start">
 
     <!-- content here -->
-    <h1 id="product-title" class="text-2xl font-bold">Tavara 1</h1>
-    <img src="images/placeholder.jpg" id="product-big-img" class="w-[75%]">
-    <div class="gap-4">
+    <div class="flex flex-col w-[60%] sm:w-[50%] lg:sticky lg:top-[15vh] lg:h-[75vh]">
+      <h1 id="product-title" class="text-2xl font-bold">Tavara 1</h1>
+      <img src="images/placeholder.jpg" id="product-big-img" class="w-full">
+    </div>
+    <div class="gap-4 lg:w-[50vw]">
       <section class="flex flex-row justify-between">
         <div>
           <p id="product-sold-status" class="text-sm">Myydään</p>
@@ -122,11 +124,24 @@
 
       </section>
 
-      <section class="mb-20">
+      <section class="">
         <h2 class="text-xl font-bold my-2">Kommentit</h2>
+
         <div id="product-comment-section">
 
+          <div id="comment-1" class="flex flex-row bg-gray-200 gap-2 p-3 rounded-3xl">
+            <img src="images/user-svgrepo-com.svg" id="comment-1-avatar" class="size-20 rounded-full bg-white">
+            <div>
+              @<a id="comment-1-username" href="#">Käyttäjä 1</a>
+              <p id="comment-1-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat fuga atque
+                ratione laborum quibusdam
+                voluptatem, consequuntur autem eos dolorem voluptate ducimus natus dignissimos, ipsa facilis quisquam
+                aperiam rem reprehenderit tempora.</p>
+            </div>
+          </div>
+
         </div>
+
       </section>
     </div>
     <!-- content above -->
