@@ -1,10 +1,11 @@
 import jwt from 'jsonwebtoken';
-import {selectUserByUsername} from '../models/user-model.js';
+import {findUserByUsername} from '../models/user-model.js';
 import 'dotenv/config';
 
-const postLogin = async (req, res) => {
+// User authentication controller functions
+const postLogin = async (req, res, next) => {
   console.log('postLogin', req.body);
-  const user = await selectUserByUsername(req.body.username);
+  const user = await findUserByUsername(req.body.username);
   //console.log('user found?', user);
   if (user && user.password === req.body.password) {
     delete user.password;
@@ -13,7 +14,9 @@ const postLogin = async (req, res) => {
     });
     res.json({...user, token});
   } else {
-    res.sendStatus(401);
+    const error = new Error('Invalid username or password');
+    error.status = 401;
+    return next(error);
   }
 };
 
