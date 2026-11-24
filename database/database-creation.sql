@@ -30,7 +30,7 @@ CREATE TABLE users (
 
     email VARCHAR(100) NOT NULL UNIQUE,
 
-    user_level INT NOT NULL DEFAULT 1,
+    user_level INT NOT NULL DEFAULT 2,
 
     avatar VARCHAR(255) DEFAULT 'default_avatar.png',
 

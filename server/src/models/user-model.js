@@ -65,12 +65,19 @@ const modifyUser = async (id, user, currentUser) => {
     return {error: 'Missing required fields'};
   }
 
-  const sql = `UPDATE users SET username = ?, password = ?, email = ?
+  const sql = `UPDATE users SET last_name = ?, first_name = ? ,username = ?, password = ?, email = ?
                WHERE user_id = ?`;
-  const params = [username, password, email, id];
+  const params = [
+    user.last_name || null,
+    user.first_name || null,
+    username,
+    password,
+    email,
+    id,
+  ];
 
   // Check if the current user is an admin (user_level_id = 1)
-  if (currentUser.user_level_id !== 1) {
+  if (currentUser.user_level !== 1) {
     sql += ' AND user_id = ?';
     params.push(currentUser.user_id);
   }
@@ -87,10 +94,10 @@ const modifyUser = async (id, user, currentUser) => {
   }
 };
 
-const deleteUser = async (id) => {
+const deleteUser = async (id, currentUser) => {
   // If the user is not an admin, only allow deletion of their own user information
-  if (currentUser.user_level_id !== 1) {
-    if (currentUser.user_id !== Number(id)) {
+  if (currentUser.user_level !== 1) {
+    if (currentUser.user !== Number(id)) {
       return {error: 'You are not allowed to delete this user'};
     }
   }

@@ -50,6 +50,7 @@ const postUser = async (req, res, next) => {
   }
 };
 
+// Modify user information (PUT /api/users/:id)
 const putUser = async (req, res, next) => {
   const {username, password, email} = req.body;
   if (!username || !password || !email) {
@@ -57,7 +58,7 @@ const putUser = async (req, res, next) => {
     error.status = 400;
     return next(error);
   }
-  const result = await modifyUser(req.params.id, req.body);
+  const result = await modifyUser(req.params.id, req.body, req.user);
   if (!result) {
     const error = new Error('User not found');
     error.status = 404;
@@ -72,7 +73,7 @@ const putUser = async (req, res, next) => {
 };
 
 const deleteUser = async (req, res, next) => {
-  const result = await deleteUserModel(req.params.id);
+  const result = await deleteUserModel(req.params.id, req.user);
   if (!result) {
     const error = new Error('User not found');
     error.status = 404;
