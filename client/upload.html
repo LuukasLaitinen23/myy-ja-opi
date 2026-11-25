@@ -60,28 +60,28 @@
     <!-- content here -->
     <div class="flex flex-col w-[80%] gap-2 sm:w-[50%] lg:h-[75vh]">
 
-      <label for="title" class="text-xl font-bold my-2">Otsikko</label>
+      <label for="title" class="text-2xl font-bold my-2">Otsikko</label>
       <input type="text" id="title" name="title" class=" border-[2px] border-solid border-grey-400 p-2"
         placeholder="Tavaran nimi">
 
-      <label for="image" class="text-xl font-bold my-2">Kuva</label>
+      <label for="image" class="text-2xl font-bold my-2">Kuva</label>
       <input type="file" id="image" name="image" class="bg-blue-600 p-3 rounded-2xl text-white"
         accept="image/png, image/jpeg">
       <img src="images/placeholder.jpg" id="product-big-img" class="w-full">
       <!-- ladattu kuva voisi ilmestyä tuohon img-elementtiin? -->
     </div>
-    <section class="gap-4 lg:w-[50vw] flex flex-col">
-      <label for="price" class="text-xl font-bold my-2">Hinta</label>
+    <section class="gap-4 w-[92%] lg:w-[50vw] flex flex-col">
+      <label for="price" class="text-2xl font-bold my-2">Hinta</label>
       <input id="price" name="price" type="number" placeholder="Anna hinta" min="1"
         class="border-[2px] border-solid border-grey-400 p-2">
 
-      <label for="description" class="text-xl font-bold my-2">Kuvaus</label>
+      <label for="description" class="text-2xl font-bold my-2">Kuvaus</label>
       <input id="description" name="description" type="text" placeholder="Anna tuotteelle kuvaus..."
         class="border-[2px] border-solid border-grey-400 p-2">
 
-      <h2 class="text-xl font-bold my-2">Lisätietoa</h2>
+      <h2 class="text-2xl font-bold my-2">Lisätietoa</h2>
       <div>
-        <label for="condition" class="font-bold">Kunto:</label>
+        <label for="condition" class="font-bold text-xl">Kunto:</label>
         <div class="flex flex-col gap-2 lg:flex-row">
           <div>
             <input type="radio" id="1" name="condition"><label for="1">Uusi</label>
@@ -100,7 +100,7 @@
           </div>
         </div>
 
-        <label for="category" class="font-bold">Kategoria:</label>
+        <label for="category" class="font-bold text-xl">Kategoria:</label>
         <select name="category" id="category">
           <option value="electronics">
             Elektroniikka
@@ -116,7 +116,7 @@
           </option>
         </select>
         <br>
-        <label for="location" class="font-bold">Sijainti:</label>
+        <label for="location" class="font-bold text-xl">Sijainti:</label>
       </div>
 
       <input type="submit" class="bg-blue-600 p-3 rounded-2xl text-white" value="Aseta myyntiin">

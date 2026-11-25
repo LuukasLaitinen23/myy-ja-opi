@@ -59,16 +59,16 @@
   <main class="w-[92%] max-w-6xl mx-auto px-2 py-6 flex flex-col items-center gap-8 lg:flex-row lg:items-start">
 
     <!-- content here -->
-    <div class="flex flex-col w-[60%] sm:w-[50%] lg:sticky lg:top-[15vh] lg:h-[75vh]">
-      <h1 id="product-title" class="text-2xl font-bold">Tavara 1</h1>
+    <div class="flex flex-col items-center w-[60%] sm:w-[50%] lg:sticky lg:top-[15vh] lg:h-[75vh]">
+      <h1 id="product-title" class="text-2xl font-bold">Tavaran nimi</h1>
       <img src="images/placeholder.jpg" id="product-big-img" class="w-full">
     </div>
     <div class="gap-4 lg:w-[50vw]">
       <section class="flex flex-row justify-between">
         <div>
-          <p id="product-sold-status" class="text-sm">Myydään</p>
+          <p id="product-sold-status" class="text-md">Myydään</p>
           <!-- teksti muutetaan "myyty" jos on saatu myydyksi -->
-          <p class="text-lg"><span id="product-price">0</span>€</p>
+          <p class="text-xl"><span id="product-price">0</span>€</p>
         </div>
 
         <div>
@@ -76,28 +76,27 @@
           shadow-md
           shadow-black/10
           hover:bg-blue-500
-          active:bg-blue-700">Osta</button>
+          active:bg-blue-700">Lisää ostoskoriin</button>
           <button id="like-btn" class="rounded-full
           bg-white
           text-stone-400
-          w-10
-          h-10
           shadow-md
           shadow-black/10
           hover:text-red-400
-          active:text-red-600"><i class="fa-solid fa-heart"></i></button>
+          p-3
+          active:text-red-600"><i class="fa-solid fa-heart"></i> <span class="text-black">Tykkää</span></button>
         </div>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold my-2">Kuvaus</h2>
+        <h2 class="text-2xl font-bold my-2">Kuvaus</h2>
         <p id="product-description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Animi facilis recusandae
           reprehenderit. Aspernatur, libero. Consequatur repellat, delectus accusantium rerum, expedita facilis est
           molestiae nisi quas aperiam, aliquid libero et odit!</p>
       </section>
 
       <section>
-        <h2 class="text-xl font-bold my-2">Lisätietoa</h2>
+        <h2 class="text-2xl font-bold my-2">Lisätietoa</h2>
         <div>
           <p><b>Kunto: </b><span id="product-condition">Kunto</span></p>
           <p><b>Kategoria: </b><a id="product-category" href="#">Kategoria</a></p>
@@ -110,11 +109,11 @@
       </section>
 
       <section>
-        <h2 class="text-xl font-bold my-2">Tietoa myyjästä</h2>
+        <h2 class="text-2xl font-bold my-2">Tietoa myyjästä</h2>
         <div id="product-seller-info" class="flex flex-row gap-3 bg-gray-200 p-3 rounded-full w-fit">
           <img src="images/user-svgrepo-com.svg" id="product-seller-avatar" class="bg-white size-12 rounded-full">
           <div>
-            <p>@<a id="product-seller-name" href="#">Myyjän nimi</a></p>
+            <p>@<a id="product-seller-name" href="#">Myyjänkäyttis</a></p>
             <p><span id="product-seller-rating">0</span> tähteä</p>
           </div>
           <button class="bg-blue-600 text-white rounded-full p-3
@@ -125,14 +124,15 @@
       </section>
 
       <section class="">
-        <h2 class="text-xl font-bold my-2">Kommentit</h2>
+        <h2 class="text-2xl font-bold my-2">Kommentit</h2>
 
         <div id="product-comment-section">
 
           <div id="comment-1" class="flex flex-row bg-gray-200 gap-2 p-3 rounded-3xl">
             <img src="images/user-svgrepo-com.svg" id="comment-1-avatar" class="size-20 rounded-full bg-white">
             <div>
-              @<a id="comment-1-username" href="#">Käyttäjä 1</a>
+              @<a id="comment-1-username" href="#">Käyttäjä1</a>
+              <span id="comment-1-timestamp" class="text-gray-500">1.1.2026</span>
               <p id="comment-1-body">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat fuga atque
                 ratione laborum quibusdam
                 voluptatem, consequuntur autem eos dolorem voluptate ducimus natus dignissimos, ipsa facilis quisquam
