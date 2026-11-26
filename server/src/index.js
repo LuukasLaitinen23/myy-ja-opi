@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import swaggerJsdoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import helmet from 'helmet';
 
 import productRouter from './routes/product-routes.js';
 import categoryRouter from './routes/category-routes.js';
@@ -34,10 +35,12 @@ app.set('view engine', 'pug');
 app.set('views', 'src/views');
 
 app.use(express.json());
+// CORS sallii API:n olla käytössä eri lähteistä
 app.use(cors());
-
-// media-kansion kuvat tarjoillaan /media-urlissa
-app.use('/media', express.static('media'));
+// Helmet auttaa suojaamaan sovellusta tunnetuilta web-haavoittuvuuksilta asettamalla asianmukaiset HTTP-headers.
+app.use(helmet());
+// public-kansion kuvat tarjoillaan /public-urlissa
+app.use('/public', express.static('public'));
 
 // API "docs" using pug template engine
 app.get('/', (req, res) => {

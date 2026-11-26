@@ -164,7 +164,7 @@ userRouter
   .route('/')
   .get(getUsers)
   .post(
-    body('username').trim().isLength({min: 3, max: 20}).isAlphanumeric(),
+    body('username').trim().isLength({min: 3, max: 20}).isAlphanumeric('fi-FI'),
     body('password').trim().isLength({min: 8}),
     body('email').trim().isEmail().normalizeEmail(),
     validationErrors,
@@ -181,7 +181,7 @@ userRouter
       .optional()
       .trim()
       .isLength({min: 3, max: 20})
-      .isAlphanumeric(),
+      .isAlphanumeric('fi-FI'),
     body('password').optional().trim().isLength({min: 8}),
     body('email').optional().trim().isEmail().normalizeEmail(),
     validationErrors,

@@ -67,11 +67,12 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-  "username": "SeppoTaalasmaa",
-  "first_name": "Seppo",
-  "last_name": "Taalasmaa",
-  "password": "uusisalasana456",
-  "email": "seppo.taalasmaa@example.com"
+  "username": "juusook",
+  "first_name": "Juuso",
+  "last_name": "Kaukko",
+  "password": "salasana",
+  "email": "juusook@example.com",
+  "user_level": 1
 }
 
 ### Muokkaa käyttäjän tietoja
@@ -80,10 +81,7 @@ Content-Type: application/json
 Authorization: Bearer {{login.response.body.token}}
 
 {
-  "first_name": "Teppo",
-  "last_name": "Testaaja",
-  "password": "vaihdettusalasana666",
-  "email": "teppo.testaaja@example.com"
+  "user_level": 1,
 }
 
 ### Poista käyttäjä ID:llä
@@ -140,5 +138,5 @@ content-type: application/json
 
 {
   "username": "mattim",
-  "password": "$2b$10$hashedpass1"
+  "password": "salasana123"
 }

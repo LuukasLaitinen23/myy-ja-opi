@@ -3,8 +3,16 @@ import {getMe, postLogin} from '../controllers/auth-controller.js';
 import {authenticateToken} from '../middlewares/authentication.js';
 import {validationErrors} from '../middlewares/error-handler.js';
 import {body} from 'express-validator';
+import rateLimit from 'express-rate-limit';
 
 const authRouter = express.Router();
+
+// Rate limiting login reitille estämään brute force -hyökkäyksiä.
+const loginLimiter = rateLimit({
+  windowMs: 5 * 60 * 1000, // 5 minuuttia
+  max: 10, // Enintään 10 yritystä per IP
+  message: {error: 'Too many login attempts, please try again later.'},
+});
 
 /* authRouter.route('/login').post(postLogin); */
 
@@ -53,14 +61,16 @@ const authRouter = express.Router();
  *       401:
  *         description: Token puuttuu tai on virheellinen
  */
-
 authRouter
   .route('/login')
   .post(
+    loginLimiter,
     body('username').trim().notEmpty(),
     body('password').trim().notEmpty(),
-    validationErrors
+    validationErrors,
+    postLogin
   );
-(postLogin, authRouter.route('/me').get(authenticateToken, getMe));
+
+authRouter.route('/me').get(authenticateToken, getMe);
 
 export default authRouter;
