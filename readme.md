@@ -13,3 +13,7 @@ As mentioned above, every new feature should be implemented in a separate branch
 When merging to main, at least two developers should handle the merge together. This ensures merge conflicts will be handled with care and that the code stays stable.
 
 Commit messages should follow the standard for best practices, first indicating the type of change followed by a description of what was changed written in the present tense. Messages should be kept easily understandable by other group members.
+
+# TODOS
+
+1. POST user reitille oikea virheviesti, kun käyttäjänimi ja/tai sähköposti löytyvät jo tietokannasta.

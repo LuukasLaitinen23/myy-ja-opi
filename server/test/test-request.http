@@ -1,4 +1,5 @@
 @baseUrl = http://127.0.0.1:3000/api
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo4LCJmaXJzdF9uYW1lIjoiU2VwcG8iLCJsYXN0X25hbWUiOiJUYWFsYXNtYWEiLCJ1c2VybmFtZSI6IlNlcHBvVGFhbGFzbWFhIiwiZW1haWwiOiJzZXBwby50YWFsYXNtYWFAZXhhbXBsZS5jb20iLCJ1c2VyX2xldmVsIjoyLCJhdmF0YXIiOiJkZWZhdWx0X2F2YXRhci5wbmciLCJjcmVhdGVkX2F0IjoiMjAyNi0xMS0yNFQxNToyMjozMC4wMDBaIiwiaWF0IjoxNzk1NTM0NjU4LCJleHAiOjE3OTU2MjEwNTh9.gL211Xcjj0LX8iqDZDZ2I8yFqnq88tJxc4uOo8Eukgc
 
 ### Product ENDPOINTS (/api/product)
 
@@ -66,20 +67,21 @@ POST {{baseUrl}}/users
 Content-Type: application/json
 
 {
-  "username": "testikayttaja",
-  "password": "salasana123",
-  "email": "testi@example.com",
-  "user_level_id": 2
+  "username": "juusook",
+  "first_name": "Juuso",
+  "last_name": "Kaukko",
+  "password": "salasana",
+  "email": "juusook@example.com",
+  "user_level": 1
 }
 
 ### Muokkaa käyttäjän tietoja
-PUT {{baseUrl}}/users/4
+PUT {{baseUrl}}/users/5
 Content-Type: application/json
+Authorization: Bearer {{login.response.body.token}}
 
 {
-  "username": "paivitetty_kayttaja",
-  "password": "uusisalasana456",
-  "email": "paivitetty@example.com"
+  "user_level": 1,
 }
 
 ### Poista käyttäjä ID:llä
@@ -115,3 +117,26 @@ Content-Type: application/json
 
 ### Poista tykkäys ID:llä
 DELETE {{baseUrl}}/likes/4
+
+
+## Authentication routes
+
+### Post login with NORMAL user
+# @name login
+POST {{baseUrl}}/auth/login
+content-type: application/json
+
+{
+  "username": "SeppoTaalasmaa",
+  "password": "uusisalasana456"
+}
+
+### POST login with ADMIN user
+# @name login
+POST {{baseUrl}}/auth/login
+content-type: application/json
+
+{
+  "username": "mattim",
+  "password": "salasana123"
+}
