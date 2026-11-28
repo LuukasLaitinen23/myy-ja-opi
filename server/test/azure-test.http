@@ -13,29 +13,6 @@ GET {{baseUrl}}/products?limit=2
 ### Hae yksittäinen tuote ID:llä
 GET {{baseUrl}}/products/1
 
-### Lataa uusi kuva palvelimelle (Multer)
-POST {{baseUrl}}/product
-Content-Type: multipart/form-data; boundary=----Boundary
-
-------Boundary
-Content-Disposition: form-data; name="title"
-
-REST Client Testikuva
-------Boundary
-Content-Disposition: form-data; name="description"
-
-Ladattu test-request.http-tiedostosta
-------Boundary
-Content-Disposition: form-data; name="user_id"
-
-1
-------Boundary
-Content-Disposition: form-data; name="file"; filename="ffd8.png"
-Content-Type: image/png
-
-< ../media/ffd8.png
-------Boundary--
-
 ### Muokkaa olemassa olevaa tuotetta ID:llä
 PUT {{baseUrl}}/product/1
 Content-Type: application/json
@@ -138,6 +115,106 @@ POST {{baseUrl}}/auth/login
 content-type: application/json
 
 {
-  "username": "mattim",
-  "password": "salasana123"
+  "username": "juusook",
+  "password": "salasana"
 }
+
+### Muokkaa tuotetta - päivitä kuvaus ja lisää kuva
+PUT {{baseUrl}}/products/2
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: multipart/form-data; boundary=----Boundary
+
+------Boundary
+Content-Disposition: form-data; name="title"
+
+TI-84 Plus
+------Boundary
+Content-Disposition: form-data; name="category_id"
+
+1
+------Boundary
+Content-Disposition: form-data; name="condition"
+
+3
+------Boundary
+Content-Disposition: form-data; name="description"
+
+Hyväkuntoinen TI-84 Plus laskin.
+------Boundary
+Content-Disposition: form-data; name="price"
+
+35.00
+------Boundary
+Content-Disposition: form-data; name="quantity"
+
+1
+------Boundary
+Content-Disposition: form-data; name="street_address"
+
+Karaportti 2
+------Boundary
+Content-Disposition: form-data; name="city"
+
+Espoo
+------Boundary
+Content-Disposition: form-data; name="postal_code"
+
+02610
+------Boundary
+Content-Disposition: form-data; name="image"; filename="ti-84-plus.avif"
+Content-Type: image/jpeg
+
+< ../media/ti-84-plus.avif
+------Boundary--
+
+### Poista tuote ID:llä (vaatii oman käyttäjän tai adminin tokenin)
+DELETE {{baseUrl}}/products/5
+Authorization: Bearer {{login.response.body.token}}
+
+### Lisää uusi tuote kuvalla (vaatii tokenin)
+POST {{baseUrl}}/products
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: multipart/form-data; boundary=----Boundary
+
+------Boundary
+Content-Disposition: form-data; name="title"
+
+Fender Twin reverb -kitaravahvistin
+------Boundary
+Content-Disposition: form-data; name="category_id"
+
+4
+------Boundary
+Content-Disposition: form-data; name="condition"
+
+2
+------Boundary
+Content-Disposition: form-data; name="description"
+
+Vähälle käytölle jäänyt hyväkuntoinen Fender Twin reverb -kitaravahvistin.
+------Boundary
+Content-Disposition: form-data; name="price"
+
+55.00
+------Boundary
+Content-Disposition: form-data; name="quantity"
+
+1
+------Boundary
+Content-Disposition: form-data; name="street_address"
+
+Otakaari 1
+------Boundary
+Content-Disposition: form-data; name="city"
+
+Espoo
+------Boundary
+Content-Disposition: form-data; name="postal_code"
+
+02150
+------Boundary
+Content-Disposition: form-data; name="image"; filename="fender-twin.jpg"
+Content-Type: image/jpeg
+
+< ../media/fender-twin.jpg
+------Boundary--
