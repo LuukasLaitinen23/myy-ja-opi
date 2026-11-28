@@ -29,6 +29,7 @@ const swaggerOptions = {
   apis: ['./src/routes/*.js'], // Lukee kommentit kaikista route-tiedostoista
 };
 
+// Luo Swagger-dokumentaatio
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 
 app.set('view engine', 'pug');
@@ -39,8 +40,11 @@ app.use(express.json());
 app.use(cors());
 // Helmet auttaa suojaamaan sovellusta tunnetuilta web-haavoittuvuuksilta asettamalla asianmukaiset HTTP-headers.
 app.use(helmet());
+
 // public-kansion kuvat tarjoillaan /public-urlissa
 app.use('/public', express.static('public'));
+// uploads-kansion kuvat tarjoillaan /uploads-urlissa
+app.use('/uploads', express.static('uploads'));
 
 // API "docs" using pug template engine
 app.get('/', (req, res) => {

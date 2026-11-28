@@ -2,7 +2,7 @@ import promisePool from '../utils/database.js';
 
 const listAllUsers = async () => {
   try {
-    const [rows] = await promisePool.query('SELECT * FROM Users');
+    const [rows] = await promisePool.query('SELECT * FROM users');
     return rows;
   } catch (e) {
     console.error('error', e.message);

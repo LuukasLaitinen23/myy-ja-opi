@@ -2,7 +2,10 @@ import express from 'express';
 import {
   getProducts,
   getProductById,
+  postProduct,
 } from '../controllers/product-controller.js';
+import {authenticateToken} from '../middlewares/authentication.js';
+import {upload, createThumbnail, convertToPng} from '../middlewares/upload.js';
 
 const productRouter = express.Router();
 
@@ -56,7 +59,71 @@ const productRouter = express.Router();
  *                 $ref: '#/components/schemas/Product'
  */
 
-productRouter.route('/').get(getProducts);
+/**
+ * @swagger
+ * /api/products:
+ *   post:
+ *     summary: Luo uuden myynti-ilmoituksen (vaatii kirjautumisen)
+ *     tags: [Products]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - title
+ *               - category_id
+ *               - condition
+ *               - description
+ *               - price
+ *             properties:
+ *               title:
+ *                 type: string
+ *                 example: Kitaravahvistin
+ *               category_id:
+ *                 type: integer
+ *                 example: 4
+ *               event_id:
+ *                 type: integer
+ *                 example: 1
+ *               condition:
+ *                 type: integer
+ *                 example: 2
+ *               description:
+ *                 type: string
+ *                 example: Hyväkuntoinen harjoitusvahvistin.
+ *               price:
+ *                 type: number
+ *                 example: 55.00
+ *               quantity:
+ *                 type: integer
+ *                 example: 1
+ *               street_address:
+ *                 type: string
+ *                 example: Otakaari 1
+ *               city:
+ *                 type: string
+ *                 example: Espoo
+ *               postal_code:
+ *                 type: string
+ *                 example: 02150
+ *               file:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Tuote luotu onnistuneesti
+ *       401:
+ *         description: Kirjautuminen vaaditaan
+ */
+
+productRouter
+  .route('/')
+  .get(getProducts)
+  .post(authenticateToken, upload.single('image'), convertToPng, postProduct);
 
 /**
  * @swagger
