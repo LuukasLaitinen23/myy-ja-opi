@@ -1,4 +1,8 @@
-import {listAllProducts, findProductById} from '../models/product-model.js';
+import {
+  listAllProducts,
+  findProductById,
+  addProduct,
+} from '../models/product-model.js';
 
 // Hakee kaikki tuotteet, joilla is_sold = false
 const getProducts = async (req, res) => {
@@ -25,4 +29,28 @@ const getProductById = async (req, res) => {
   res.json(product);
 };
 
-export {getProducts, getProductById};
+const postProduct = async (req, res, next) => {
+  try {
+    const newProduct = {
+      ...req.body,
+      user_id: req.user.user_id,
+      image: req.file ? req.file.filename : 'default_product.png',
+    };
+
+    const result = await addProduct(newProduct);
+    if (!result) {
+      const error = new Error('Tuotteen lisääminen epäonnistui');
+      error.status = 400;
+      return next(error);
+    }
+
+    res.status(201).json({
+      message: 'Uusi tuote lisätty',
+      result,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export {getProducts, getProductById, postProduct};

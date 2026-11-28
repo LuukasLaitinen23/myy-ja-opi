@@ -85,4 +85,48 @@ const findProductById = async (id) => {
   }
 };
 
-export {listAllProducts, findProductById};
+const addProduct = async (product) => {
+  const {
+    user_id,
+    category_id,
+    event_id,
+    title,
+    condition,
+    description,
+    price,
+    quantity,
+    image,
+    street_address,
+    city,
+    postal_code,
+  } = product;
+
+  const sql = `
+    INSERT INTO products
+      (user_id, category_id, event_id, title, \`condition\`, description, price, quantity, image, street_address, city, postal_code)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `;
+
+  const params = [
+    user_id,
+    category_id,
+    event_id || null,
+    title,
+    condition,
+    description,
+    price,
+    quantity || 1,
+    image,
+    street_address || null,
+    city || null,
+    postal_code || null,
+  ];
+
+  const [result] = await promisePool.execute(sql, params);
+  if (result.affectedRows === 0) {
+    return false;
+  }
+  return {product_id: result.insertId};
+};
+
+export {listAllProducts, findProductById, addProduct};
