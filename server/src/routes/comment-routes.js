@@ -1,5 +1,11 @@
 import express from 'express';
-import {getCommentsByProductId} from '../controllers/comment-controller.js';
+import {authenticateToken} from '../middlewares/authentication.js';
+import {
+  getCommentsByProductId,
+  postComment,
+  putComment,
+  deleteComment,
+} from '../controllers/comment-controller.js';
 
 const commentRouter = express.Router();
 
@@ -56,6 +62,15 @@ const commentRouter = express.Router();
  *               items:
  *                 $ref: '#/components/schemas/Comment'
  */
+
+// Hakee yksittäisen tuotteen kaikki kommentit
 commentRouter.route('/product/:productId').get(getCommentsByProductId);
+// Lisää uuden kommentin kirjautuneelle käyttäjälle
+commentRouter.route('/').post(authenticateToken, postComment);
+
+commentRouter
+  .route('/:id')
+  .put(authenticateToken, putComment)
+  .delete(authenticateToken, deleteComment);
 
 export default commentRouter;

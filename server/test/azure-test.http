@@ -218,3 +218,29 @@ Content-Type: image/jpeg
 
 < ../media/fender-twin.jpg
 ------Boundary--
+
+### Hae tietyn tuotteen kommentit
+GET {{baseUrl}}/comments/product/1
+
+### Lisää uusi kommentti (vaatii tokenin)
+POST {{baseUrl}}/comments
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "product_id": 2,
+  "comment_text": "Tuleeko airfryerin mukana lisävarusteita?"
+}
+
+### Muokkaa omaa kommenttia
+PUT {{baseUrl}}/comments/2
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "comment_text": "Muokattu kommentti: Sopisiko haku klo 14?"
+}
+
+### Poista kommentti
+DELETE {{baseUrl}}/comments/1
+Authorization: Bearer {{login.response.body.token}}

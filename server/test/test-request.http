@@ -225,3 +225,29 @@ Content-Type: image/jpeg
 ### Poista tuote ID:llä (vaatii oman käyttäjän tai adminin tokenin)
 DELETE {{baseUrl}}/products/5
 Authorization: Bearer {{login.response.body.token}}
+
+### Hae tietyn tuotteen kommentit
+GET {{baseUrl}}/comments/product/1
+
+### Lisää uusi kommentti (vaatii tokenin)
+POST {{baseUrl}}/comments
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "product_id": 2,
+  "content": "Tuleeko airfryerin mukana lisävarusteita?"
+}
+
+### Muokkaa omaa kommenttia
+PUT {{baseUrl}}/comments/2
+Authorization: Bearer {{login.response.body.token}}
+Content-Type: application/json
+
+{
+  "content": "Muokattu kommentti: Sopisiko haku klo 14?"
+}
+
+### Poista kommentti
+DELETE {{baseUrl}}/comments/1
+Authorization: Bearer {{login.response.body.token}}

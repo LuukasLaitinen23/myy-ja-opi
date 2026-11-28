@@ -26,4 +26,64 @@ const findCommentsByProductId = async (productId) => {
   }
 };
 
-export {findCommentsByProductId};
+const addComment = async (comment) => {
+  const {product_id, user_id, content} = comment;
+  const sql = `
+    INSERT INTO comments (product_id, user_id, content)
+    VALUES (?, ?, ?)
+  `;
+  const params = [product_id, user_id, content];
+  const [result] = await promisePool.execute(sql, params);
+  if (result.affectedRows === 0) {
+    return false;
+  }
+  return {comment_id: result.insertId};
+};
+
+const modifyComment = async (id, content, currentUser) => {
+  if (!content) {
+    return {error: 'Missing content'};
+  }
+
+  let sql = 'UPDATE comments SET content = ? WHERE comment_id = ?';
+  const params = [content, id];
+
+  if (currentUser.user_level !== 1) {
+    sql += ' AND user_id = ?';
+    params.push(currentUser.user_id);
+  }
+
+  try {
+    const [result] = await promisePool.execute(sql, params);
+    if (result.affectedRows === 0) {
+      return false;
+    }
+    return {message: 'Comment updated', comment_id: Number(id)};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+const deleteComment = async (id, currentUser) => {
+  let sql = 'DELETE FROM comments WHERE comment_id = ?';
+  const params = [id];
+
+  if (currentUser.user_level !== 1) {
+    sql += ' AND user_id = ?';
+    params.push(currentUser.user_id);
+  }
+
+  try {
+    const [result] = await promisePool.execute(sql, params);
+    if (result.affectedRows === 0) {
+      return false;
+    }
+    return {message: 'Comment deleted', comment_id: Number(id)};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {addComment, modifyComment, deleteComment, findCommentsByProductId};
