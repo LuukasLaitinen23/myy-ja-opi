@@ -2,6 +2,8 @@ import {
   listAllProducts,
   findProductById,
   addProduct,
+  modifyProduct,
+  deleteProduct as removeProduct,
 } from '../models/product-model.js';
 
 // Hakee kaikki tuotteet, joilla is_sold = false
@@ -53,4 +55,47 @@ const postProduct = async (req, res, next) => {
   }
 };
 
-export {getProducts, getProductById, postProduct};
+const putProduct = async (req, res, next) => {
+  try {
+    const updatedProduct = {
+      ...req.body,
+      ...(req.file && {image: req.file.filename}),
+    };
+
+    const result = await modifyProduct(req.params.id, updatedProduct, req.user);
+    if (!result) {
+      const error = new Error('Product not found or unauthorized');
+      error.status = 404;
+      return next(error);
+    }
+    if (result.error) {
+      const error = new Error(result.error);
+      error.status = 400;
+      return next(error);
+    }
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteProduct = async (req, res, next) => {
+  try {
+    const result = await removeProduct(req.params.id, req.user);
+    if (!result) {
+      const error = new Error('Product not found or unauthorized');
+      error.status = 404;
+      return next(error);
+    }
+    if (result.error) {
+      const error = new Error(result.error);
+      error.status = 400;
+      return next(error);
+    }
+    res.json(result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export {getProducts, getProductById, postProduct, putProduct, deleteProduct};

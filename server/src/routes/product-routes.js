@@ -3,6 +3,8 @@ import {
   getProducts,
   getProductById,
   postProduct,
+  putProduct,
+  deleteProduct,
 } from '../controllers/product-controller.js';
 import {authenticateToken} from '../middlewares/authentication.js';
 import {upload, createThumbnail, convertToPng} from '../middlewares/upload.js';
@@ -147,6 +149,10 @@ productRouter
  *       404:
  *         description: Tuotetta ei löydy
  */
-productRouter.route('/:id').get(getProductById);
+productRouter
+  .route('/:id')
+  .get(getProductById)
+  .put(authenticateToken, upload.single('image'), convertToPng, putProduct)
+  .delete(authenticateToken, deleteProduct);
 
 export default productRouter;

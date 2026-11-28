@@ -129,4 +129,86 @@ const addProduct = async (product) => {
   return {product_id: result.insertId};
 };
 
-export {listAllProducts, findProductById, addProduct};
+const modifyProduct = async (id, product, currentUser) => {
+  const {title, price} = product;
+  if (!title || !price) {
+    return {error: 'Missing required fields'};
+  }
+
+  let sql = `
+    UPDATE products
+    SET category_id = ?, event_id = ?, title = ?, \`condition\` = ?,
+        description = ?, price = ?, quantity = ?, is_sold = ?,
+        street_address = ?, city = ?, postal_code = ?
+  `;
+
+  const params = [
+    product.category_id || null,
+    product.event_id || null,
+    title,
+    product.condition || null,
+    product.description || null,
+    price,
+    product.quantity || 1,
+    product.is_sold ?? 0,
+    product.street_address || null,
+    product.city || null,
+    product.postal_code || null,
+  ];
+
+  // Jos pyynnössä mukana uusi kuva, päivitetään myös image-sarake
+  if (product.image) {
+    sql += ', image = ?';
+    params.push(product.image);
+  }
+
+  sql += ' WHERE product_id = ?';
+  params.push(id);
+
+  // Check if the current user is an admin (user_level = 1)
+  if (currentUser.user_level !== 1) {
+    sql += ' AND user_id = ?';
+    params.push(currentUser.user_id);
+  }
+
+  try {
+    const [result] = await promisePool.execute(sql, params);
+    if (result.affectedRows === 0) {
+      return false;
+    }
+    return {message: 'Product updated', product_id: id};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+const deleteProduct = async (id, currentUser) => {
+  let sql = 'DELETE FROM products WHERE product_id = ?';
+  const params = [id];
+
+  // Check if the current user is an admin (user_level = 1)
+  if (currentUser.user_level !== 1) {
+    sql += ' AND user_id = ?';
+    params.push(currentUser.user_id);
+  }
+
+  try {
+    const [result] = await promisePool.execute(sql, params);
+    if (result.affectedRows === 0) {
+      return false;
+    }
+    return {message: 'Product deleted', product_id: id};
+  } catch (e) {
+    console.error('error', e.message);
+    return {error: e.message};
+  }
+};
+
+export {
+  listAllProducts,
+  findProductById,
+  addProduct,
+  modifyProduct,
+  deleteProduct,
+};
